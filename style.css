@@ -1,0 +1,158 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000000;
+    background-image: linear-gradient(120deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    background-size: 200% 200%;
+    animation: Gradient 3s ease infinite;
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        background: url('money-printing.mp4') no-repeat;
+        background-size: cover;
+        animation: none;
+      }
+
+
+
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.leftPanel {
+    width: 25%;
+    text-align: center;
+}
+
+.rightPanel {
+    width: 65%;
+    text-align: left;
+}
+
+.rightPanel>div {
+    margin-bottom: 30px;
+}
+
+.details {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.item {
+    margin-bottom: 10px;
+}
+
+.bolded {
+    font-weight: 500;
+}
+
+.yearsOfExperience {
+    font-size: 0.8em;
+    font-weight: 300;
+    color: #777;
+}
+
+.bottomLineSeparator {
+    border-bottom: 1px solid #777;
+    padding-bottom: 5px;
+}
+
+.workExperience {
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.7em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+}
+
+.smallText {
+    color: #777;
+    font-size: 0.9em;
+}
+
+ul {
+    padding-left: 10px;
+    list-style-position: inside;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1, h2, h3 {
+        margin-top: 0;
+    }
+    
+    .section {
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 5px solid #333;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: all 0.3s ease;
+    }
+    
+    .section:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .section h2 {
+        border-bottom: 2px solid rgb(255, 255, 255);
+        padding-bottom: 5px;
+    }
+    
+    .contact-info {
+        margin-top: 20px;
+    }
+    
+    .contact-info p {
+        margin: 5px 0;
+    }
+    
+    .skill-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        fill: #333;
+    }
