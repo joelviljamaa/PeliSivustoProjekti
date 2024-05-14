@@ -31,6 +31,10 @@ window.onload = function() {
     placesnake();
     placeapple();
     document.addEventListener("keyup", changeDirection);
+    document.addEventListener("keyup", () => {
+        snakebody.length = 4;
+        document.body.removeEventListener('click', cb);
+      }, { once: true });
     //update
     setInterval(update, 1000/10);
 }
@@ -77,7 +81,7 @@ function update () {
     //häviäminen jos mato osuu seinään
     if (snakeX < 0 || snakeX > columns*blocksize || snakeY < 0 || snakeY > rows *blocksize) {
         gameover = true;
-        alert("gae over");
+        alert("hit a wall");
     }
 
 
@@ -85,7 +89,7 @@ function update () {
     for (let i = 0; i < snakebody.length; i++) {
         if (snakeX == snakebody[i][0] && snakeY == snakebody[i][1]) {
             gameover = true;
-            alert("game over");
+            alert("bite tail");
         }
     }
 }
@@ -122,11 +126,11 @@ function changeDirection(e) {
 
     else if (e.code == "KeyQ") {
         gameover = true;
-        alert("freeze")
+        alert("freeze or you win")
     }
 
     else if (e.code == "KeyC") {
-        snakebody.length = 7;
+        snakebody.length = 700;
     }
 }
 //functiont jotka randomisti laittaa objectit canvasille
@@ -140,14 +144,13 @@ function placesnake() {
     snakeY = Math.floor(Math.random() * rows) * blocksize;
 }
 //eventti kuunteli sille milloin laittaa madon alku pituuden
-document.addEventListener(changeDirection, once, true ) {
-    snakebody.length = 4;
-}
+
 
 function changeText(id) {
-    id.innerHTML = "0Oo";
+    id.innerHTML = "Snake game";
   }
 
     //fixes to be done
   //when game ends it restarts, able to win, when going to a wall you come out from other side.
   //new game modes/objects mines, portals.
+
