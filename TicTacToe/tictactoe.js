@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.querySelector('#reset');
     const announcer = document.querySelector('.announcer');
 
-    let board = ['', '', '', '', '', '', '', '', '',];
+    let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
     let isGameActive = true;
 
@@ -63,7 +63,7 @@ tutoriaali
     }
 
     const announce = (type) => {
-        switch(type) {
+        switch(type){
             case PLAYERO_WON:
                 announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
                 break;
@@ -84,11 +84,16 @@ tutoriaali
         return true;
     };
 
+    const updateBoard = (index) => {
+        board[index] = currentPlayer;
+    }
+
+
     const changePlayer = () => {
-        playerDisplay.classList.remove('player${currentPlayer}');
+        playerDisplay.classList.remove(`player${currentPlayer}`);
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         playerDisplay.innerText = currentPlayer;
-        playerDispla.classList.add(`player${currentPlayer}`);
+        playerDisplay.classList.add(`player${currentPlayer}`);
     }
 
     const userAction = (tile, index) => {
@@ -114,7 +119,7 @@ tutoriaali
             tile.innerText = '';
             tile.classList.remove('playerX');
             tile.classList.remove('playerO');
-        })
+        });
     }
 
     tiles.forEach( (tile, index) => {
