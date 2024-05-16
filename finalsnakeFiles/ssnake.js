@@ -4,6 +4,7 @@ var Context;
 var blocksize = 20;
 var rows = 30;
 var columns = 30;
+var mesh = 1;
 
 //sneak
 var snakeX;
@@ -31,15 +32,14 @@ window.onload = function() {
     placesnake();
     placeapple();
     document.addEventListener("keyup", changeDirection);
-    document.addEventListener("keyup", () => {
+    document.addEventListener("boll", (e) => {
         snakebody.length = 4;
-        document.body.removeEventListener('click', cb);
       }, { once: true });
     //update
     setInterval(update, 1000/10);
 }
 
-function update () {
+function update() {
     if (gameover) {
         return;
     }
@@ -49,16 +49,11 @@ function update () {
     Context.fillStyle="yellow";
     Context.fillRect(appleX, appleY, blocksize-1, blocksize-1);
 
-    Context.fillStyle="yellow";
-    Context.fillRect(appleX, appleY, blocksize-1, blocksize-1);
-
     if (snakeX  == appleX && snakeY == appleY) {
         snakebody.push([appleX, appleY])
         placeapple();
     }
 
-
-    //madon pituuden kasvaminen
     for (let i = snakebody.length-1; i > 0; i--) {
         snakebody[i] = snakebody[i-1];
     }
@@ -66,8 +61,6 @@ function update () {
         snakebody[0] = [snakeX, snakeY];
     }
 
-
-    //madon ulko asu ja toimintoja
     Context.fillStyle="black";
     snakeX += velocityX * blocksize;
     snakeY += velocityY * blocksize;
@@ -77,28 +70,36 @@ function update () {
         Context.fillRect(snakebody[i][0], snakebody[i][1], blocksize-1, blocksize-1);
     }
 
-
-    //häviäminen jos mato osuu seinään
     if (snakeX < 0 || snakeX > columns*blocksize || snakeY < 0 || snakeY > rows *blocksize) {
         gameover = true;
-        alert("hit a wall");
+        alert("gae over");
     }
 
-
-    //häviäminen jos mato osuu matoon
     for (let i = 0; i < snakebody.length; i++) {
         if (snakeX == snakebody[i][0] && snakeY == snakebody[i][1]) {
             gameover = true;
-            alert("bite tail");
+            alert("game over");
         }
+    }
+
+    if (velocityX || velocityY == 1) {
+        var boll = new CustomEvent("boll");
+        document.dispatchEvent(boll);
+    }
+
+    if (velocityX || velocityY == -1) {
+        var boll = new CustomEvent("boll");
+        document.dispatchEvent(boll);
     }
 }
 
-//ohjaukset
+
+
 function changeDirection(e) {
     if (e.code == "KeyW" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
+        
     }
 
     else if (e.code == "KeyS" && velocityY != -1) {
@@ -126,14 +127,14 @@ function changeDirection(e) {
 
     else if (e.code == "KeyQ") {
         gameover = true;
-        alert("freeze or you win")
+        alert("freeze")
     }
 
     else if (e.code == "KeyC") {
-        snakebody.length = 700;
+        snakebody.length = 7;
     }
 }
-//functiont jotka randomisti laittaa objectit canvasille
+
 function placeapple() {
     appleX = Math.floor(Math.random() * columns) * blocksize;
     appleY = Math.floor(Math.random() * rows) * blocksize;
@@ -143,14 +144,8 @@ function placesnake() {
     snakeX = Math.floor(Math.random() * columns) * blocksize;
     snakeY = Math.floor(Math.random() * rows) * blocksize;
 }
-//eventti kuunteli sille milloin laittaa madon alku pituuden
-
 
 function changeText(id) {
     id.innerHTML = "Snake game";
   }
-
-    //fixes to be done
-  //when game ends it restarts, able to win, when going to a wall you come out from other side.
-  //new game modes/objects mines, portals.
 
