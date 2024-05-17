@@ -24,7 +24,7 @@ body::after{
     width: fit-content;
     height: 100%;
     display: flex;
-    padding-left: 60px;
+    padding-left: 90px;
 }
 
 .header-main-nav{
