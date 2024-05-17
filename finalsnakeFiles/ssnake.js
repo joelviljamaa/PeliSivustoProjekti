@@ -23,6 +23,7 @@ var snakebody = [];
 
 var gameover = false;
 
+//loading the canvas
 window.onload = function() {
     board = document.getElementById("board");
     board.height = rows * blocksize;
@@ -72,13 +73,13 @@ function update() {
 
     if (snakeX < 0 || snakeX > columns*blocksize || snakeY < 0 || snakeY > rows *blocksize) {
         gameover = true;
-        alert("gae over");
+        alert("hit a wall");
     }
 
     for (let i = 0; i < snakebody.length; i++) {
         if (snakeX == snakebody[i][0] && snakeY == snakebody[i][1]) {
             gameover = true;
-            alert("game over");
+            alert("ate tail");
         }
     }
 
@@ -90,6 +91,10 @@ function update() {
     if (velocityX || velocityY == -1) {
         var boll = new CustomEvent("boll");
         document.dispatchEvent(boll);
+    }
+
+    if (snakebody.length == 298) {
+        alert("you win");
     }
 }
 
@@ -148,4 +153,6 @@ function placesnake() {
 function changeText(id) {
     id.innerHTML = "Snake game";
   }
+
+//fixes. a number counting body cegments.
 
