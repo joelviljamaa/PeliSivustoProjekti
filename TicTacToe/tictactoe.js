@@ -19,12 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
         [6][7][8]
     */
 
-/* 
-tutoriaali
-    https://www.youtube.com/watch?v=B3pmT7Cpi24
-*/
-
-
 
     const winningConditions = [
         [0, 1, 2],

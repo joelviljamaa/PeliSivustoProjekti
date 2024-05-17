@@ -18,6 +18,13 @@ var velocityY = 0;
 var appleX;
 var appleY;
 
+//mines
+var portal1X;
+var portal1Y;
+
+var portal2X;
+var portal2Y;
+
 //body
 var snakebody = [];
 
@@ -32,6 +39,7 @@ window.onload = function() {
 
     placesnake();
     placeapple();
+    placeportal();
     document.addEventListener("keyup", changeDirection);
     document.addEventListener("boll", (e) => {
         snakebody.length = 4;
@@ -50,10 +58,25 @@ function update() {
     Context.fillStyle="yellow";
     Context.fillRect(appleX, appleY, blocksize-1, blocksize-1);
 
-    if (snakeX  == appleX && snakeY == appleY) {
+    Context.fillStyle="aqua";
+    Context.fillRect(portal1X, portal1Y, blocksize, blocksize);
+
+    Context.fillStyle="rgb(92, 24, 201)";
+    Context.fillRect(portal2X, portal2Y, blocksize, blocksize);
+
+    //snake eating apple function
+    if (snakeX == appleX && snakeY == appleY) {
         snakebody.push([appleX, appleY])
         placeapple();
-    }
+    };
+
+    if (snakeX == portal2X && snakeY == portal2Y) {
+        snakeX = portal1X;
+        snakeY = portal1Y;
+    } else if (snakeX == portal1X && snakeY == portal1Y) {
+        snakeX = portal2X;
+        snakeY = portal2Y;
+    };
 
     for (let i = snakebody.length-1; i > 0; i--) {
         snakebody[i] = snakebody[i-1];
@@ -93,10 +116,12 @@ function update() {
         document.dispatchEvent(boll);
     }
 
-    if (snakebody.length == 298) {
+    if (snakebody.length == 296) {
         alert("you win");
     }
 }
+
+
 
 
 
@@ -138,6 +163,10 @@ function changeDirection(e) {
     else if (e.code == "KeyC") {
         snakebody.length = 7;
     }
+
+    else if (e.code == "KeyM") {
+        setInterval(update, 2000/10);
+    }
 }
 
 function placeapple() {
@@ -150,9 +179,16 @@ function placesnake() {
     snakeY = Math.floor(Math.random() * rows) * blocksize;
 }
 
+function placeportal() {
+    portal1X = Math.floor(Math.random() * columns) * blocksize;
+    portal1Y = Math.floor(Math.random() * rows) * blocksize;
+
+    portal2X = Math.floor(Math.random() * columns) * blocksize;
+    portal2Y = Math.floor(Math.random() * rows) * blocksize;
+}
+
 function changeText(id) {
-    id.innerHTML = "Snake game";
-  }
+    id.innerHTML = "super meat boy light forest";
+}
 
-//fixes. a number counting body cegments.
-
+//fixes: fix the other/lower portal not working
