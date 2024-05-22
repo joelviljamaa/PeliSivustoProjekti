@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif, cursive;
     line-height: 1.6;
     margin: 0;
     background: linear-gradient(to right ,rgb(60, 36, 87),#1c1535  ); /*#eb1708, #1b05dd*/
@@ -9,4 +9,5 @@ body {
 
 h1 {
     background-color: white;
+    font-family: Arial, Helvetica, sans-serif, cursive;
 }
