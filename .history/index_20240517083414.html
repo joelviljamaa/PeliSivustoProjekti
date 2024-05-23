@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>JJJ Pelit</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background: linear-gradient(to right ,rgb(60, 36, 87),#1c1535  );
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {background-position: 0%;}
+            50% {background-position: 100%;}
+            100% {background-position: 0%;}
+        
+            <video id="background-video" autoplay loop muted>
+  <source src="money-printing.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+        
+        
+        
+        
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-size: 2.5em;
+            margin: 50px 0;
+        }
+
+        section {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+        }
+
+        section:nth-child(even) {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        section > div {
+            display: none;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px 0;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
+            background-color: rgb(70, 41, 109);
+        }
+
+        label:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        #radio-section-0:checked ~ #section-0 > div,
+        #radio-section-1:checked ~ #section-1 > div,
+        #radio-section-2:checked ~ #section-2 > div {
+            display: block;
+        }
+
+        p {
+            color: rgb(0, 0, 0);
+        }
+
+        a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>JJJ Pelit</h1>
+
+    <input id="radio-section-0" type="radio" name="section" checked>
+    <label for="radio-section-0">Matopeli</label>
+    <section id="section-0">
+        <div>
+            <p> <a href="finalsnakeFiles/snake.html"> Matopeli.</a></p>
+        </div>
+    </section>
+
+    <input id="radio-section-1" type="radio" name="section" >
+    <label for="radio-section-1">Ristinolla</label>
+    <section id="section-1">
+        <div>
+            <p> <a href="TicTacToe/tictactoe.html"> Tästä pääset pelaaman ristinollaa</a></p>
+        </div>
+    </section>
+
+    <input id="radio-section-2" type="radio" name="section" >
+    <label for="radio-section-2">Pelaajille sivustoija. </label>
+    <section id="section-2">
+        <div>
+            <p><a href="https://www.cdkeys.com/">cdkeys.com</a></p>
+<p><a href="https://steamunlocked.net/">ilmaset steam pelit</a></p>
+
+        </div>
+    </section>
+</body>
+</html>
