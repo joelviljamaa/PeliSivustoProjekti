@@ -61,7 +61,7 @@ function update() {
     Context.fillStyle="aqua";
     Context.fillRect(portal1X, portal1Y, blocksize, blocksize);
 
-    Context.fillStyle="rgb(92, 24, 201)";
+    Context.fillStyle="aqua";
     Context.fillRect(portal2X, portal2Y, blocksize, blocksize);
 
     //snake eating apple function
@@ -118,6 +118,7 @@ function update() {
 
     if (snakebody.length == 296) {
         alert("you win");
+        end();
     }
 }
 
@@ -165,7 +166,11 @@ function changeDirection(e) {
     }
 
     else if (e.code == "KeyM") {
-        setInterval(update, 2000/10);
+        setInterval(update, 1000/10);
+    }
+
+    else if (e.code == "KeyN") {
+        setInterval(update, 500/10);
     }
 }
 
@@ -188,7 +193,16 @@ function placeportal() {
 }
 
 function changeText(id) {
-    id.innerHTML = "super meat boy light forest";
+    id.innerHTML = "Snake game";
 }
 
 //fixes: fix the other/lower portal not working
+
+function end () {
+    console.log("super meat boy light forest")
+}
+
+setInterval(tic, 1000/10);
+function tic() {
+    document.getElementById("score").innerHTML = snakebody.length;
+}

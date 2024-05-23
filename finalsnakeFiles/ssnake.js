@@ -154,5 +154,8 @@ function changeText(id) {
     id.innerHTML = "Snake game";
   }
 
-//fixes. a number counting body cegments.
 
+setInterval(tic, 1000/10);
+function tic() {
+    document.getElementById("score").innerHTML = snakebody.length;
+}
