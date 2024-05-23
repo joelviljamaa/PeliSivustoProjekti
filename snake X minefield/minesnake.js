@@ -55,7 +55,7 @@ function update() {
     if (gameover) {
         return;
     }
-    Context.fillStyle="rgb(255, 123, 0)";
+    Context.fillStyle="rgb(83, 94, 158)";
     Context.fillRect(0, 0, board.width, board.height);
 
     Context.fillStyle="yellow";
@@ -203,3 +203,7 @@ function changeText(id) {
     id.innerHTML = "Snake game";
   }
 
+  setInterval(tic, 1000/10);
+  function tic() {
+      document.getElementById("score").innerHTML = snakebody.length;
+  }
